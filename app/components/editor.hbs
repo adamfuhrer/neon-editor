@@ -1,9 +1,19 @@
 <div class="editor {{selectedColor}}">
     <Editor::ColorPicker
-        @colors={{colors}}
+        @colors={{this.editor.colors}}
         @selectedColor={{selectedColor}}
-        @onChange={{action (mut selectedColor)}}>
+        @onColorChange={{this.setSelectedColor}}>
     </Editor::ColorPicker>
-    <textarea value={{@inputText}} name="" id="" rows="20"></textarea>
+    <textarea
+        value={{@value}}
+        {{on "keyup" this.setInputValue}}
+        id="area" rows="10">
+    </textarea>
+    {{#if @value}}
+        <button class="clear" {{on "click" this.onClearClicked}}>X</button>
+    {{/if}}
+    <Editor::KeyData
+        @value={{@value}}
+        @selectedColor={{selectedColor}}>
+    </Editor::KeyData>
 </div>
-{{selectedColor}} editor
