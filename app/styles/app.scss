@@ -1,0 +1,73 @@
+@import "reset.scss";
+@import "vars.scss";
+
+body {
+    background: $main-background-color;
+    color: $main-text-color;
+    padding: 20px;
+}
+
+.editor {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    textarea {
+        padding: 10px;
+        resize: none;
+        border-radius: 10px;
+        flex-grow: 1;
+    }
+
+    &.red {
+        textarea {
+            color: $red;
+            background: $red-background;
+        }
+    }
+
+    &.green {
+        textarea {
+            color: $green;
+            background: $green-background;
+        }
+    }
+
+    &.blue {
+        textarea {
+            color: $blue;
+            background: $blue-background;
+        }
+    }
+}
+
+.color-picker {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    button.color {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        background: white;
+
+        &.selected {
+            border: 1px solid white;
+        }
+
+        &.red {
+            background: $red;
+        }
+
+        &.green {
+            background: $green;
+        }
+
+        &.blue {
+            background: $blue;
+        }
+    }
+}
