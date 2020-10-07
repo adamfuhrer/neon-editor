@@ -1,0 +1,5 @@
+<div class="color-picker">
+  {{#each @colors as |color|}}
+    <button class="color {{concat color (if (eq color @selectedColor) ' selected')}}" onclick={{action @onChange color}}></button>
+  {{/each}}
+</div>

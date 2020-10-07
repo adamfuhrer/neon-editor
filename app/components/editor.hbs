@@ -1,0 +1,9 @@
+<div class="editor {{selectedColor}}">
+    <Editor::ColorPicker
+        @colors={{colors}}
+        @selectedColor={{selectedColor}}
+        @onChange={{action (mut selectedColor)}}>
+    </Editor::ColorPicker>
+    <textarea value={{@inputText}} name="" id="" rows="20"></textarea>
+</div>
+{{selectedColor}} editor
