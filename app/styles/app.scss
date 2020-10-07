@@ -4,19 +4,34 @@
 body {
     background: $main-background-color;
     color: $main-text-color;
-    padding: 20px;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+
+    .outlet-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
 }
 
 .editor {
     display: flex;
+    flex-grow: 1;
     flex-direction: column;
     position: relative;
+    max-width: 800px;
+    margin-top: 60px;
+    box-shadow: $box-shadow-strong;
+    border-top-right-radius: $border-radius-strong;
+    border-top-left-radius: $border-radius-strong;
 
     textarea {
-        padding: 10px;
+        padding: 20px;
         resize: none;
-        border-radius: 10px;
         flex-grow: 1;
+        border-top-left-radius: $border-radius-strong;
+        border-top-right-radius: $border-radius-strong;
     }
 
     &.red {
@@ -39,6 +54,57 @@ body {
             background: $blue-background;
         }
     }
+
+    button.clear {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        height: 24px;
+        width: 24px;
+        background: grey;
+        color: white;
+        border-radius: 50%; 
+    }
+
+    .key-data {
+        display: flex;
+        align-items: center; 
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -30px;
+        height: 30px;
+        background-color: grey;
+        border-bottom-left-radius: $border-radius-strong;
+        border-bottom-right-radius: $border-radius-strong;
+        font-family: 'Roboto Mono', monospace;
+        font-weight: 600;
+        text-shadow: $text-shadow-normal;
+        color: rgba(255, 255, 255, .9);
+        transition: background-color 200ms $ease 0s;
+        box-shadow: $box-shadow-strong;
+
+        &.red {
+            background-color: $red;
+        }
+
+        &.green {
+            background-color: $green;
+        }
+
+        &.blue {
+            background-color: $blue;
+        }
+
+        .data {
+            display: flex;
+            align-items: center;
+            min-width: 80px;
+            padding-left: 30px;
+            height: 100%;
+            font-size: 14px;
+        }
+    }
 }
 
 .color-picker {
@@ -49,25 +115,46 @@ body {
     right: 10px;
 
     button.color {
-        height: 30px;
-        width: 30px;
+        height: 26px;
+        width: 26px;
         border-radius: 50%;
         background: white;
+        border: 3px solid transparent;
+        box-shadow: inset -1px -1px 0 rgba(0, 0, 0, .5), inset 1px 1px 0 0 rgba(255, 255, 255, .6);
+        transition: $transition-medium;
+
+        + button.color {
+            margin-top: 4px;
+        }
 
         &.selected {
-            border: 1px solid white;
+            border: 3px solid rgba(0, 0, 0, .4);
         }
 
         &.red {
-            background: $red;
+            background-color: $red;
         }
 
         &.green {
-            background: $green;
+            background-color: $green;
         }
 
         &.blue {
-            background: $blue;
+            background-color: $blue;
+        }
+
+        &:hover, &:focus {
+            &.red {
+                background-color: lighten($red, 8%);
+            }
+    
+            &.green {
+                background-color: lighten($green, 8%);
+            }
+    
+            &.blue {
+                background-color: lighten($blue, 8%);
+            }
         }
     }
 }

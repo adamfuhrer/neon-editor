@@ -5,8 +5,17 @@ $main-text-color: white;
 $red: #D22D2D;
 $red-background: #FAEAEA;
 
-$green: #4DB38D;
+$green: rgb(42, 153, 112);
 $green-background: #EEF7F3;
 
 $blue: #1289C7;
 $blue-background: #EBF4FA;
+
+$border-radius-strong: 10px;
+$box-shadow-strong: 0 1px 1px rgba(16,27,30,.15), 0 2px 2px rgba(16,27,30,.15), 0 4px 4px rgba(16,27,30,.15), 0 8px 8px rgba(16,27,30,.15), 0 16px 16px rgba(16,27,30,.15);
+
+$ease: cubic-bezier(0.215, 0.61, 0.355, 1);
+$transition-fast: all 180ms $ease 0s;
+$transition-medium: all 340ms $ease 0s;
+
+$text-shadow-normal: 0 1px rgba(0, 0, 0, 0.14);
