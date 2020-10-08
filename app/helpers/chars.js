@@ -9,7 +9,7 @@ function chars([string]) {
 		charCount = string.length;
 	}
 
-	return `chars: ${charCount}`;
+	return `characters: ${charCount}`;
 }
 
 export default helper(chars);

@@ -2,18 +2,16 @@ import Service from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 
 export default class EditorService extends Service {
-	@tracked text = 'Some placeholder text';
-	colors = ['red', 'green', 'blue'];
+	@tracked text = '';
+	colors = ['pink', 'green', 'blue'];
 
 	setText(text) {
 		this.text = text;
-	}
-
-	getText() {
-		return this.text;
+		localStorage.setItem("text", text);
 	}
 
 	clearText() {
 		this.text = '';
+		localStorage.setItem("text", "");
 	}
 }

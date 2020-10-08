@@ -2,14 +2,14 @@
 $main-background-color: #333333;
 $main-text-color: white;
 
-$red: #D22D2D;
-$red-background: #FAEAEA;
+$pink: #Ff0a78;
+$pink-background: #f5d8e5;
 
-$green: rgb(42, 153, 112);
-$green-background: #EEF7F3;
+$green: #1a9c71;
+$green-background: #d5f1e8;
 
-$blue: #1289C7;
-$blue-background: #EBF4FA;
+$blue: #405be2;
+$blue-background: #d7dbf5;
 
 $border-radius-strong: 10px;
 $box-shadow-strong: 0 1px 1px rgba(16,27,30,.15), 0 2px 2px rgba(16,27,30,.15), 0 4px 4px rgba(16,27,30,.15), 0 8px 8px rgba(16,27,30,.15), 0 16px 16px rgba(16,27,30,.15);
@@ -19,3 +19,5 @@ $transition-fast: all 180ms $ease 0s;
 $transition-medium: all 340ms $ease 0s;
 
 $text-shadow-normal: 0 1px rgba(0, 0, 0, 0.14);
+
+$serif-font: 'Secular One', sans-serif;

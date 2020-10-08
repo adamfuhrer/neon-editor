@@ -44,6 +44,7 @@
     "ember-qunit": "^4.6.0",
     "ember-resolver": "^8.0.2",
     "ember-source": "~3.21.1",
+    "ember-svg-jar": "^2.2.3",
     "ember-template-lint": "^2.11.0",
     "ember-truth-helpers": "^2.1.0",
     "ember-welcome-page": "^4.0.0",

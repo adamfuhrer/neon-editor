@@ -5,6 +5,7 @@ body {
     background: $main-background-color;
     color: $main-text-color;
     padding: 30px;
+    padding-bottom: 60px;
     display: flex;
     justify-content: center;
 
@@ -27,17 +28,30 @@ body {
     border-top-left-radius: $border-radius-strong;
 
     textarea {
-        padding: 20px;
+        padding: 30px 60px 40px 34px;
         resize: none;
         flex-grow: 1;
         border-top-left-radius: $border-radius-strong;
         border-top-right-radius: $border-radius-strong;
+        font-family: $serif-font;
+        font-weight: 800;
+        font-size: 20px;
+        line-height: 32px;
+        min-height: 400px;
+
+        &:placeholder {
+            color: grey;
+        }
     }
 
-    &.red {
+    &.pink {
         textarea {
-            color: $red;
-            background: $red-background;
+            color: $pink;
+            background: $pink-background;
+
+            &::placeholder {
+                color: #ff0a7870;
+            }
         }
     }
 
@@ -45,6 +59,11 @@ body {
         textarea {
             color: $green;
             background: $green-background;
+
+
+            &::placeholder {
+                color: #1a9c7187;
+            }
         }
     }
 
@@ -52,6 +71,10 @@ body {
         textarea {
             color: $blue;
             background: $blue-background;
+
+            &::placeholder {
+                color: #405be282;
+            }
         }
     }
 
@@ -59,11 +82,20 @@ body {
         position: absolute;
         right: 10px;
         bottom: 10px;
-        height: 24px;
-        width: 24px;
-        background: grey;
-        color: white;
-        border-radius: 50%; 
+        height: 34px;
+        width: 34px;
+        background: transparent;
+        
+        svg {
+            fill: #999999;
+            transition: $transition-fast;
+        }
+
+        &:hover {
+            svg {
+                fill: #333333;
+            }
+        }
     }
 
     .key-data {
@@ -84,8 +116,8 @@ body {
         transition: background-color 200ms $ease 0s;
         box-shadow: $box-shadow-strong;
 
-        &.red {
-            background-color: $red;
+        &.pink {
+            background-color: $pink;
         }
 
         &.green {
@@ -111,8 +143,8 @@ body {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 14px;
+    right: 14px;
 
     button.color {
         height: 26px;
@@ -131,8 +163,8 @@ body {
             border: 3px solid rgba(0, 0, 0, .4);
         }
 
-        &.red {
-            background-color: $red;
+        &.pink {
+            background-color: $pink;
         }
 
         &.green {
@@ -144,8 +176,8 @@ body {
         }
 
         &:hover, &:focus {
-            &.red {
-                background-color: lighten($red, 8%);
+            &.pink {
+                background-color: lighten($pink, 8%);
             }
     
             &.green {

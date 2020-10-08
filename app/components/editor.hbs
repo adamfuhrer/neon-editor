@@ -7,10 +7,14 @@
     <textarea
         value={{@value}}
         {{on "keyup" this.setInputValue}}
-        id="area" rows="10">
+        placeholder="Enter some text..."
+        spellcheck="false"
+        id="area">
     </textarea>
     {{#if @value}}
-        <button class="clear" {{on "click" this.onClearClicked}}>X</button>
+        <button class="clear" {{on "click" this.onClearClicked}}>
+            {{svg-jar "delete-sweep-24"}}   
+        </button>
     {{/if}}
     <Editor::KeyData
         @value={{@value}}
