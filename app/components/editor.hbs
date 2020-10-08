@@ -1,9 +1,4 @@
-<div class="editor {{selectedColor}}">
-    <Editor::ColorPicker
-        @colors={{this.editor.colors}}
-        @selectedColor={{selectedColor}}
-        @onColorChange={{this.setSelectedColor}}>
-    </Editor::ColorPicker>
+<div class="editor {{concat @selectedColor (if @isFullScreen ' is-fullscreen')}}">
     <textarea
         value={{@value}}
         {{on "keyup" this.setInputValue}}
@@ -11,13 +6,21 @@
         spellcheck="false"
         id="area">
     </textarea>
+    <Editor::ColorPicker
+        @colors={{this.editor.colors}}
+        @selectedColor={{@selectedColor}}
+        @onColorChange={{this.setSelectedColor}}>
+    </Editor::ColorPicker>
+    <button class="action full-screen" title="Expand/collapse" {{on "click" this.toggleFullScreen}}>
+        {{svg-jar (if @isFullScreen "collapse" "expand") width="30px" heigh="30px"}}   
+    </button>
     {{#if @value}}
-        <button class="clear" {{on "click" this.onClearClicked}}>
-            {{svg-jar "delete-sweep-24"}}   
+        <button class="action clear" title="Clear text" {{on "click" this.onClearClicked}}>
+            {{svg-jar "broom" width="30px" heigh="30px"}}   
         </button>
     {{/if}}
     <Editor::KeyData
         @value={{@value}}
-        @selectedColor={{selectedColor}}>
+        @selectedColor={{@selectedColor}}>
     </Editor::KeyData>
 </div>

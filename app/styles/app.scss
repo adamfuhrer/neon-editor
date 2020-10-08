@@ -21,11 +21,35 @@ body {
     flex-grow: 1;
     flex-direction: column;
     position: relative;
-    max-width: 800px;
-    margin-top: 60px;
+    min-width: 780px;
+    min-height: 460px;
     box-shadow: $box-shadow-strong;
     border-top-right-radius: $border-radius-strong;
     border-top-left-radius: $border-radius-strong;
+    position: fixed;
+    top: 100px;
+
+    &.is-fullscreen {
+        top: 26px;
+        bottom: 56px;
+        left: 26px;
+        right: 26px;
+        min-width: 0;
+        min-height: 0;
+    }
+
+    @media screen and (max-width: 820px) {
+        top: 26px;
+        bottom: 56px;
+        left: 26px;
+        right: 26px;
+        min-width: 0;
+        min-height: 0;
+
+        button.action.full-screen {
+            display: none;
+        }
+    }
 
     textarea {
         padding: 30px 60px 40px 34px;
@@ -37,9 +61,9 @@ body {
         font-weight: 800;
         font-size: 20px;
         line-height: 32px;
-        min-height: 400px;
+        transition: color, background-color 200ms $ease 0s;
 
-        &:placeholder {
+        &::placeholder {   
             color: grey;
         }
     }
@@ -47,7 +71,7 @@ body {
     &.pink {
         textarea {
             color: $pink;
-            background: $pink-background;
+            background-color: $pink-background;
 
             &::placeholder {
                 color: #ff0a7870;
@@ -58,8 +82,7 @@ body {
     &.green {
         textarea {
             color: $green;
-            background: $green-background;
-
+            background-color: $green-background;
 
             &::placeholder {
                 color: #1a9c7187;
@@ -70,7 +93,7 @@ body {
     &.blue {
         textarea {
             color: $blue;
-            background: $blue-background;
+            background-color: $blue-background;
 
             &::placeholder {
                 color: #405be282;
@@ -78,22 +101,29 @@ body {
         }
     }
 
-    button.clear {
+    button.action {
         position: absolute;
         right: 10px;
-        bottom: 10px;
         height: 34px;
         width: 34px;
         background: transparent;
         
+        &.clear {
+            bottom: 10px;
+        }
+
+        &.full-screen {
+            top: 110px;
+        }
+        
         svg {
-            fill: #999999;
+            fill: #777777;
             transition: $transition-fast;
         }
 
-        &:hover {
+        &:hover, &:focus {
             svg {
-                fill: #333333;
+                fill: black;
             }
         }
     }
