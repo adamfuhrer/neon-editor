@@ -102,6 +102,8 @@ body {
         display: flex;
         align-items: center; 
         position: absolute;
+        padding-left: 30px;
+        padding-right: 30px;
         left: 0;
         right: 0;
         bottom: -30px;
@@ -131,10 +133,17 @@ body {
         .data {
             display: flex;
             align-items: center;
-            min-width: 80px;
-            padding-left: 30px;
+            min-width: 130px;
             height: 100%;
             font-size: 14px;
+
+            &:first-of-type {
+                min-width: 80px;
+            }
+
+            + .data {
+                margin-left: 30px;
+            }
         }
     }
 }
