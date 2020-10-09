@@ -2,10 +2,10 @@ import Service from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 
 export default class EditorService extends Service {
-	colors = ['pink', 'green', 'blue'];
+	colors = ['pink', 'green', 'blue', 'orange'];
 	@tracked text = '';
-	@tracked selectedColor = this.colors[0]; 
-    @tracked isFullScreen;
+	@tracked selectedColor = this.colors[0];
+	@tracked isFullScreen;
 
 	setText(text) {
 		this.text = text;

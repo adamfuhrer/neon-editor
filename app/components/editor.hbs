@@ -6,21 +6,20 @@
         spellcheck="false"
         id="area">
     </textarea>
+    <button class="action full-screen"
+            title="{{if @isFullScreen 'Collapse editor' 'Expand editor'}}"
+            {{on "click" this.toggleFullScreen}}>
+        {{svg-jar (if @isFullScreen "collapse" "expand") width="30px" heigh="30px"}}   
+    </button>
     <Editor::ColorPicker
         @colors={{this.editor.colors}}
         @selectedColor={{@selectedColor}}
         @onColorChange={{this.setSelectedColor}}>
     </Editor::ColorPicker>
-    <button class="action full-screen" title="Expand/collapse" {{on "click" this.toggleFullScreen}}>
-        {{svg-jar (if @isFullScreen "collapse" "expand") width="30px" heigh="30px"}}   
-    </button>
     {{#if @value}}
         <button class="action clear" title="Clear text" {{on "click" this.onClearClicked}}>
             {{svg-jar "broom" width="30px" heigh="30px"}}   
         </button>
     {{/if}}
-    <Editor::KeyData
-        @value={{@value}}
-        @selectedColor={{@selectedColor}}>
-    </Editor::KeyData>
+    <Editor::KeyData @value={{@value}}></Editor::KeyData>
 </div>

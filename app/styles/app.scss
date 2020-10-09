@@ -1,6 +1,15 @@
 @import "reset.scss";
 @import "vars.scss";
 
+@mixin fullscreen-editor {
+    top: 26px;
+    bottom: 56px;
+    left: 26px;
+    right: 26px;
+    min-width: 0;
+    min-height: 0;
+}
+
 body {
     background: $main-background-color;
     color: $main-text-color;
@@ -29,25 +38,32 @@ body {
     position: fixed;
     top: 100px;
 
+    &:before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        z-index: -1;
+        bottom: -34px;
+        filter: blur(4px);
+        border-radius: $border-radius-strong;
+        transition: background-color, box-shadow 300ms $ease 0s;
+    }
+
     &.is-fullscreen {
-        top: 26px;
-        bottom: 56px;
-        left: 26px;
-        right: 26px;
-        min-width: 0;
-        min-height: 0;
+        @include fullscreen-editor;
     }
 
     @media screen and (max-width: 820px) {
-        top: 26px;
-        bottom: 56px;
-        left: 26px;
-        right: 26px;
-        min-width: 0;
-        min-height: 0;
+        @include fullscreen-editor;
 
         button.action.full-screen {
             display: none;
+        }
+
+        .color-picker {
+            top: 14px;
         }
     }
 
@@ -77,6 +93,15 @@ body {
                 color: #ff0a7870;
             }
         }
+
+        .key-data {
+            background-color: $pink;
+        }
+
+        &:before {
+            background-color: #da5a92;
+            box-shadow: 0 0 15px #da5a92;
+        }
     }
 
     &.green {
@@ -88,6 +113,15 @@ body {
                 color: #1a9c7187;
             }
         }
+
+        .key-data {
+            background-color: $green;
+        }
+
+        &:before {
+            background-color: #20966f;
+            box-shadow: 0 0 15px #20966f;
+        }
     }
 
     &.blue {
@@ -98,6 +132,35 @@ body {
             &::placeholder {
                 color: #405be282;
             }
+        }
+
+        .key-data {
+            background-color: $blue;
+        }
+
+        &:before {
+            background-color: #657df5;
+            box-shadow: 0 0 15px #657df5;
+        }
+    }
+
+    &.orange {
+        textarea {
+            color: $orange;
+            background-color: $orange-background;
+
+            &::placeholder {
+                color: #e49893;
+            }
+        }
+
+        .key-data {
+            background-color: $orange;
+        }
+
+        &:before {
+            background-color: #dc7871;
+            box-shadow: 0 0 15px #dc7871;
         }
     }
 
@@ -113,7 +176,7 @@ body {
         }
 
         &.full-screen {
-            top: 110px;
+            top: 12px;
         }
         
         svg {
@@ -148,18 +211,6 @@ body {
         transition: background-color 200ms $ease 0s;
         box-shadow: $box-shadow-strong;
 
-        &.pink {
-            background-color: $pink;
-        }
-
-        &.green {
-            background-color: $green;
-        }
-
-        &.blue {
-            background-color: $blue;
-        }
-
         .data {
             display: flex;
             align-items: center;
@@ -182,7 +233,7 @@ body {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 14px;
+    top: 56px;
     right: 14px;
 
     button.color {
@@ -214,6 +265,10 @@ body {
             background-color: $blue;
         }
 
+        &.orange {
+            background-color: $orange;
+        }
+
         &:hover, &:focus {
             &.pink {
                 background-color: lighten($pink, 8%);
@@ -225,6 +280,10 @@ body {
     
             &.blue {
                 background-color: lighten($blue, 8%);
+            }
+                
+            &.orange {
+                background-color: lighten($orange, 8%);
             }
         }
     }
