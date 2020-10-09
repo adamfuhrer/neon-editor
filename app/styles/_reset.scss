@@ -44,3 +44,9 @@ textarea {
         outline: none;
     }
 }
+
+a {
+    &:focus {
+        outline: none;
+    }
+}
