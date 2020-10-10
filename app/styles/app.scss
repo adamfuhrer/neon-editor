@@ -57,8 +57,6 @@ body {
         @include fullscreen-editor;
     }
 
-
-
     textarea {
         padding: 30px 60px 40px 34px;
         resize: none;
@@ -73,7 +71,7 @@ body {
         line-height: 32px;
         transition: color, background-color 200ms $ease 0s;
 
-        &::placeholder {   
+        &::placeholder {
             color: grey;
         }
     }
@@ -198,7 +196,7 @@ body {
         background-color: grey;
         border-bottom-left-radius: $border-radius-strong;
         border-bottom-right-radius: $border-radius-strong;
-        font-family: 'Roboto Mono', monospace;
+        font-family: $monospace;
         font-weight: 600;
         text-shadow: $text-shadow-normal;
         color: rgba(255, 255, 255, .9);
@@ -244,6 +242,16 @@ body {
                 margin-left: 30px;
             }
         }
+    }
+
+    .about {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        bottom: -120px;
+        font-size: 14px;
+        color: rgb(255 255 255 / 60%);
+        width: 100%;
     }
 
     @media screen and (max-width: 820px) {
