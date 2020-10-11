@@ -38,7 +38,7 @@ body {
     border-bottom-left-radius: 0;
     border-bottom-left-radius: 0;
     position: fixed;
-    top: 18vh;
+    top: 14vh;
 
     &:before {
         content: "";
@@ -234,12 +234,34 @@ body {
             height: 100%;
             font-size: 14px;
 
+            &.mobile {
+                display: flex;
+            }
+
+            &.desktop {
+                display: none;
+            }
+
             &:first-of-type {
                 min-width: 80px;
             }
 
             + .data {
                 margin-left: 30px;
+
+                &.mobile {
+                    margin-left: 0;
+                }
+            }
+
+            @media screen and (min-width: 820px) {
+                &.mobile {
+                    display: none;
+                }
+
+                &.desktop {
+                    display: flex;
+                }
             }
         }
     }

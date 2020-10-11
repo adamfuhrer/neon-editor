@@ -1,12 +1,15 @@
 <div class="key-data">
-	<div class="data">
+	<div class="data desktop">
 		{{words @value}}
 	</div>
-	<div class="data">
+	<div class="data desktop">
 		{{chars @value}}
 	</div>
-	<div class="data">
+	<div class="data desktop">
 		{{lines @value}}
+	</div>
+	<div class="data mobile">
+		{{concatEditorData @value}}
 	</div>
 	<a class="github" href="https://github.com/adamfuhrer/neon-editor" target="_blank" title="GitHub repo">
 		{{svg-jar "github" width="18px" height="18px"}}   
