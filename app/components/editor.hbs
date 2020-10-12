@@ -2,7 +2,8 @@
     <Textarea
         value={{@value}}
         {{autofocus}}
-        {{on "keyup" this.setInputValue}}
+        {{on "keyup" this.onKeyUp}}
+        {{on "keydown" this.onKeyDown}}
         placeholder="Enter some text..."
         spellcheck="false"
         id="area">

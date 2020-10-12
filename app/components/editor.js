@@ -5,13 +5,15 @@ import { inject as service } from '@ember/service';
 export default class EditorComponent extends Component {
     @service('editor') editor;
 
-    @action setInputValue(event) {
+    @action onKeyUp(event) {
+        this.editor.setText(event.target.value);
+    }
+
+    @action onKeyDown(event) {
         if (event.key && event.key.toLowerCase() === 'tab') {
             // insert tab character into textarea and prevent default
             this.editor.setText(event.target.value + `\t`)
             event.preventDefault();
-        } else {
-            this.editor.setText(event.target.value)
         }
     }
 
