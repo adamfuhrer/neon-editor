@@ -1,13 +1,18 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
-import { tracked } from '@glimmer/tracking';
 
 export default class EditorComponent extends Component {
     @service('editor') editor;
 
     @action setInputValue(event) {
-        this.editor.setText(event.target.value)
+        if (event.key && event.key.toLowerCase() === 'tab') {
+            // insert tab character into textarea and prevent default
+            this.editor.setText(event.target.value + `\t`)
+            event.preventDefault();
+        } else {
+            this.editor.setText(event.target.value)
+        }
     }
 
     @action onClearClicked() {
