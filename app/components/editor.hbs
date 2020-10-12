@@ -1,11 +1,12 @@
 <div class="editor {{concat @selectedColor (if @isFullScreen ' is-fullscreen')}}">
-    <textarea
+    <Textarea
         value={{@value}}
-        {{on "keyup" this.setInputValue}}
+        {{autofocus}}
+        {{on "keydown" this.setInputValue}}
         placeholder="Enter some text..."
         spellcheck="false"
         id="area">
-    </textarea>
+    </Textarea>
     <button class="action full-screen"
             title="{{if @isFullScreen 'Collapse editor' 'Expand editor'}}"
             {{on "click" this.toggleFullScreen}}>
