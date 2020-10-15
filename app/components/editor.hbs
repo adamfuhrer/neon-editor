@@ -1,4 +1,4 @@
-<div class="editor {{concat @selectedColor (if @isFullScreen ' is-fullscreen')}}">
+<div class="editor {{@selectedColor}} {{if @isFullScreen 'is-fullscreen'}} {{if this.isTransitioningSize 'is-toggling'}}">
     <Textarea
         value={{@value}}
         {{autofocus}}

@@ -6,7 +6,6 @@
     bottom: 56px;
     left: 26px;
     right: 26px;
-    min-width: 0;
     min-height: 0;
 }
 
@@ -25,19 +24,25 @@ body {
     }
 }
 
+// TODO: seperate app styles into their own files instead of one big one
 .editor {
+    position: fixed;
+    top: 14vh;
+    left: calc(50vw - 400px);
+    right: calc(50vw - 400px);
+    bottom: 45vh;
+    min-height: 400px;
     display: flex;
     flex-grow: 1;
     flex-direction: column;
-    min-width: 780px;
-    min-height: 460px;
-    box-shadow: $box-shadow-strong;
     border-top-right-radius: $border-radius-strong;
     border-top-left-radius: $border-radius-strong;
     border-bottom-left-radius: 0;
     border-bottom-left-radius: 0;
-    position: fixed;
-    top: 14vh;
+
+    &.is-toggling {
+        transition: $element-position-transition;
+    }
 
     &:before {
         content: "";
@@ -49,11 +54,15 @@ body {
         bottom: -34px;
         filter: blur(4px);
         border-radius: $border-radius-strong;
-        transition: background-color, box-shadow 300ms $ease 0s;
+        transition: background-color 300ms $ease 0s, box-shadow 300ms $ease 0s;
     }
 
     &.is-fullscreen {
         @include fullscreen-editor;
+
+        &.is-toggling {
+            transition: $element-position-transition;
+        }
     }
 
     textarea {
