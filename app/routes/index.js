@@ -24,20 +24,6 @@ export default class IndexRoute extends Route {
 	}
 
 	model() {
-		let editor = this.editor;
-
-		return {
-			get text() {
-				return editor.text;
-			},
-
-			get color() {
-				return editor.selectedColor;
-			},
-
-			get isFullScreen() {
-				return editor.isFullScreen;
-			}
-		}
+		return this.editor;
 	}
 }
